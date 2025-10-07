@@ -101,3 +101,23 @@
   width: 100%;
   flex: 0 0 190px;
 }
+
+@media only screen and (max-width: 720px) {
+  .profile-group-results {
+    flex-direction: column;
+  }
+  .profile-group-results-item {
+    width: 100%;
+    max-height: 7.5em;
+  }
+  .profile-group-results-card {
+    flex-direction: row;
+    max-width: none;
+  }
+  .profile-group-avatar {
+    flex: 3;
+  }
+  .profile-group-content {
+    flex: 1;
+  }
+}
