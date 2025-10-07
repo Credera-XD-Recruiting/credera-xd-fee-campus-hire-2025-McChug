@@ -1,5 +1,6 @@
 import './style.css';
 import { getFriendsListData } from '../../services/profile';
+import getInitials from '../../helpers/getInitials.js';
 import { useQuery } from '@tanstack/react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -70,7 +71,11 @@ export const ProfileFriends = () => {
           {sortedFriends.map((friend, index) => (
             <li className="profile-list-item fade-in" key={index}>
               <div className="profile-list-item-avatar">
-                <img className="loading" src={friend.image} />
+                {friend.image ? (
+                  <img className="avatar-loading" src={friend.image} />
+                ) : (
+                  <span>{getInitials(friend.name)}</span>
+                )}
               </div>
               <div className="profile-list-item-info">
                 <p className="page-paragraph">

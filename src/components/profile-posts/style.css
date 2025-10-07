@@ -11,10 +11,12 @@
 }
 
 .post-author-avatar {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--grayscale_2);
+  background-color: var(--grayscale_3);
   height: 75px;
   width: 75px;
   min-width: 75px;
@@ -30,6 +32,12 @@
 .post-author-avatar img {
   height: 100%;
   width: 100%;
+}
+
+.post-author-avatar span {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .post-author-info {
