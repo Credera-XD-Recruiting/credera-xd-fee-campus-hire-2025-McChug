@@ -61,6 +61,11 @@ export const ProfileFriends = () => {
               </div>
               <div className="profile-list-item-info">
                 <p className="page-paragraph">{friend.name}</p>
+                {friend.topFriend ? (
+                  <p className="top-friend">Top Friend</p>
+                ) : (
+                  <div></div>
+                )}
                 <p className="page-micro">
                   {friend.jobTitle} @ {friend.companyName}
                 </p>
