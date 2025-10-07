@@ -43,6 +43,13 @@ export const ProfileGroups = () => {
 
   const { groups } = data;
 
+  const activityColorMapping = {
+    active: 'background-secondary',
+    moderate: 'background-primary',
+    low: 'background-warning',
+    inactive: 'background-grayscale_2',
+  };
+
   return (
     <section id="profile-groups">
       <h2 className="page-heading-2">Groups</h2>
@@ -50,7 +57,10 @@ export const ProfileGroups = () => {
         {groups.map(group => (
           <li className="profile-group-results-item" key={group.id}>
             <a
-              className="profile-group-results-card content-card fade-in"
+              className={
+                'profile-group-results-card content-card fade-in ' +
+                activityColorMapping[group.activity]
+              }
               href={group.href}
             >
               <div className="profile-group-avatar">
