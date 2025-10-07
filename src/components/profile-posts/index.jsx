@@ -8,6 +8,19 @@ export const ProfilePosts = () => {
     queryFn: getProfileData,
   });
 
+  function formatPublishDate(isoString) {
+    const date = new Date(isoString);
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    };
+    return date.toLocaleDateString(undefined, options);
+  }
+
   if (isLoading) {
     return (
       <section id="profile-posts">
@@ -47,6 +60,12 @@ export const ProfilePosts = () => {
             </div>
           </div>
           <p className="page-body post-content fade-in">{pinnedPost.post}</p>
+          <div className="post-metadata">
+            <p>{formatPublishDate(pinnedPost.publishDate)}</p>
+            <p>
+              {pinnedPost.city}, {pinnedPost.state}
+            </p>
+          </div>
         </div>
       </div>
     </section>

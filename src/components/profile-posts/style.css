@@ -1,4 +1,3 @@
-
 #profile-posts {
   margin-top: 50px;
 }
@@ -40,6 +39,15 @@
 
 .post-author-info > :first-child {
   margin-bottom: 8px;
+}
+
+.post-metadata {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1rem;
+  font-size: 14px;
+  font-style: italic;
 }
 
 /* SKELETON LOADING */
