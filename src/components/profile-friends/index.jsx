@@ -49,14 +49,25 @@ export const ProfileFriends = () => {
       </section>
     );
 
-  const { friends } = data;
+  const sortedFriends = data?.friends
+    ? [...data.friends].sort((a, b) => {
+        // sort by top friend
+        if (a.topFriend && !b.topFriend) return -1;
+        if (!a.topFriend && b.topFriend) return 1;
+
+        // sort alphabetically by last name
+        const aLastName = a.name.split(' ').slice(-1)[0];
+        const bLastName = b.name.split(' ').slice(-1)[0];
+        return aLastName.localeCompare(bLastName);
+      })
+    : [];
 
   return (
     <section id="profile-friends">
       <div className="content-card fade-in">
         <h2 className="page-heading-2">Friends</h2>
         <ul className="profile-friends-list">
-          {friends.map((friend, index) => (
+          {sortedFriends.map((friend, index) => (
             <li className="profile-list-item fade-in" key={index}>
               <div className="profile-list-item-avatar">
                 <img className="loading" src={friend.image} />
