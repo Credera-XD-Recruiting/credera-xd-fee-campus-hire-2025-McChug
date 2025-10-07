@@ -15,11 +15,11 @@
 }
 
 .content-grid-block--main {
-  grid-area: 'main';
+  grid-area: main;
 }
 
 .content-grid-block--friends {
-  grid-area: 'friends';
+  grid-area: friends;
 }
 
 .content-card {
@@ -33,7 +33,7 @@
   }
 }
 
-@media only screen and (min-width: 1124px) {
+@media only screen and (min-width: 1024px) {
   .content-grid {
     grid-template-columns: 1fr 400px;
     grid-template-areas: 'main friends';

@@ -4,12 +4,35 @@ import getInitials from '../../helpers/getInitials.js';
 import { useQuery } from '@tanstack/react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
 
 export const ProfileFriends = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['friends'],
     queryFn: getFriendsListData,
   });
+
+  // get height of main content
+  useEffect(() => {
+    const updateHeight = () => {
+      if (window.innerWidth > 1024) {
+        const mainEl_1 = document.querySelector('#profile-posts');
+        const mainEl_2 = document.querySelector('#profile-groups');
+        if (mainEl_1 && mainEl_2) {
+          const mainHeight =
+            mainEl_1.offsetHeight + mainEl_2.offsetHeight + 120; // NEEDSWORK: get dynamic value instead of hardcoding 120
+          document.documentElement.style.setProperty(
+            '--main-content-height',
+            `${mainHeight}px`,
+          );
+        }
+      }
+    };
+
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, [data]);
 
   if (isLoading)
     return (

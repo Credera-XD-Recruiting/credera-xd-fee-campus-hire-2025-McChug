@@ -228,3 +228,7 @@ h3 {
 .italic {
   font-style: italic;
 }
+
+.mt-1 {
+  margin-top: 1rem;
+}

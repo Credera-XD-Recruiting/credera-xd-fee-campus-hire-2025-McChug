@@ -26,6 +26,7 @@ export const ProfileHeader = () => {
     );
 
   const fullName = `${data?.firstName} ${data?.lastName}`;
+  const jobTitleString = `${data?.jobTitle} @ ${data?.companyName}`;
 
   return (
     <section id="profile-header">
@@ -38,7 +39,7 @@ export const ProfileHeader = () => {
             {fullName}
             <img src="/underline.svg" className="profile-underline" />
           </h1>
-          <p class="page-paragraph page-paragraph--smoke skeleton-block skeleton-block--quarter loading" />
+          <p className="page-micro mt-1">{jobTitleString}</p>
         </div>
       </div>
     </section>
