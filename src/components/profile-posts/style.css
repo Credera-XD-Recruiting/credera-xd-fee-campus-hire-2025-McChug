@@ -3,7 +3,7 @@
 }
 
 #profile-posts .content-card {
-  background-color: var(--grayscale_1);
+  background-color: light-dark(var(--grayscale_1), var(--grayscale_4));
   padding: 16px 24px;
 }
 
@@ -34,7 +34,11 @@
   left: 0;
   right: 0;
   height: 50px;
-  background: linear-gradient(to bottom, transparent, var(--grayscale_1));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    light-dark(var(--grayscale_1), var(--midnightBlack))
+  );
   pointer-events: none;
   transition: opacity 0.3s ease-in-out;
 }
@@ -49,7 +53,7 @@
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--grayscale_3);
+  background-color: light-dark(var(--grayscale_3), var(--grayscale_5));
   height: 55px;
   width: 55px;
   min-width: 55px;
@@ -68,7 +72,7 @@
 }
 
 .post-author-avatar span {
-  color: white;
+  color: var(--grayscale_0);
   font-size: 22px;
   font-weight: bold;
 }

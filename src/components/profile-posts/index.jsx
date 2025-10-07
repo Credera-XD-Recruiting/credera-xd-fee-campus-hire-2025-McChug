@@ -69,6 +69,7 @@ export const ProfilePosts = () => {
                 (expandedPostById === postId ? 'expanded' : '')
               }
               onClick={() => toggleExpand(postId)}
+              tabindex="0"
             >
               <div className="post-author fade-in">
                 <div className="post-author-avatar fade-in">

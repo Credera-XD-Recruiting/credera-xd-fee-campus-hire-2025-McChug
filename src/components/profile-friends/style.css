@@ -2,7 +2,6 @@
 }
 
 .profile-friends-list {
-  max-height: var(--main-content-height, 4000px);
   overflow-y: auto;
   list-style: none;
   padding: 0;
@@ -14,13 +13,19 @@
   justify-content: start;
 }
 
+@media only screen and (min-width: 1124px) {
+  .profile-friends-list {
+    max-height: var(--main-content-height, 4000px);
+  }
+}
+
 .profile-list-item {
   display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
-  background-color: var(--grayscale_1);
+  background-color: light-dark(var(--grayscale_1), var(--grayscale_4));
   padding: 16px 24px;
   border-radius: 10px;
 }
@@ -41,7 +46,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--grayscale_3);
+  background-color: light-dark(var(--grayscale_3), var(--grayscale_5));
   border-radius: 50%;
   overflow: hidden;
   height: 90px;
@@ -66,7 +71,7 @@
 }
 
 .top-friend {
-  color: var(--burntOrange);
+  color: light-dark(var(--burntOrange), var(--burntOrangeDark));
 }
 
 /* SKELETON LOADING */

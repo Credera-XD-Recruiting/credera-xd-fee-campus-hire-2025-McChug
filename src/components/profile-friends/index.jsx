@@ -15,21 +15,20 @@ export const ProfileFriends = () => {
   // get height of main content
   useEffect(() => {
     const updateHeight = () => {
-      if (window.innerWidth > 1024) {
-        const mainEl_1 = document.querySelector('#profile-posts');
-        const mainEl_2 = document.querySelector('#profile-groups');
-        if (mainEl_1 && mainEl_2) {
-          const mainHeight =
-            mainEl_1.offsetHeight + mainEl_2.offsetHeight + 120; // NEEDSWORK: get dynamic value instead of hardcoding 120
-          document.documentElement.style.setProperty(
-            '--main-content-height',
-            `${mainHeight}px`,
-          );
-        }
+      const mainEl_1 = document.querySelector('#profile-posts');
+      const mainEl_2 = document.querySelector('#profile-groups');
+      if (mainEl_1 && mainEl_2) {
+        const mainHeight = mainEl_1.offsetHeight + mainEl_2.offsetHeight + 120; // NEEDSWORK: get dynamic value instead of hardcoding 120
+        document.documentElement.style.setProperty(
+          '--main-content-height',
+          `${mainHeight}px`,
+        );
       }
     };
 
     updateHeight();
+
+    // stack another event listener to window and remove the old one
     window.addEventListener('resize', updateHeight);
     return () => window.removeEventListener('resize', updateHeight);
   }, [data]);
@@ -92,7 +91,7 @@ export const ProfileFriends = () => {
         <h2 className="page-heading-2">Friends</h2>
         <ul className="profile-friends-list">
           {sortedFriends.map((friend, index) => (
-            <li className="profile-list-item fade-in" key={index}>
+            <li className="profile-list-item fade-in" key={index} tabindex="0">
               <div className="profile-list-item-avatar">
                 {friend.image ? (
                   <img className="avatar-loading" src={friend.image} />
