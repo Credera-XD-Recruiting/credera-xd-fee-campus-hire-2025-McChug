@@ -36,9 +36,15 @@
   background-color: var(--grayscale_1);
   text-decoration: none;
   color: var(--midnight_black);
+  min-width: 165px;
+}
+
+.profile-group-icon {
+  color: var(--grayscale_1);
 }
 
 .profile-group-content {
+  position: relative;
   padding: 16px 8px;
 }
 

@@ -1,6 +1,8 @@
 import './style.css';
 import { getProfileData } from '../../services/profile';
 import { useQuery } from '@tanstack/react-query';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export const ProfileGroups = () => {
   const { data, isLoading } = useQuery({
@@ -67,7 +69,17 @@ export const ProfileGroups = () => {
                 <img src={group.image} />
               </div>
               <div className="profile-group-content">
-                <p className="page-paragraph">{group.name}</p>
+                <div className="page-paragraph">
+                  <p>
+                    {group.name}&nbsp;
+                    {group.favorite ? (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        className="profile-group-icon"
+                      />
+                    ) : null}
+                  </p>
+                </div>
               </div>
             </a>
           </li>
