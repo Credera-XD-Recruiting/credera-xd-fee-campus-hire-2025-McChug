@@ -51,15 +51,11 @@
 }
 
 .profile-list-item-info {
-  display: grid;
-  grid-template-rows: 1.4em 1.4em auto;
   width: 100%;
   margin-left: 24px;
 }
 
 .top-friend {
-  font-size: 14px;
-  font-style: italic;
   color: var(--burntOrange);
 }
 

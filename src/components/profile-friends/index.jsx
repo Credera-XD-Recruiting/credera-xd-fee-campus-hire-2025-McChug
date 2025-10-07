@@ -1,6 +1,8 @@
 import './style.css';
 import { getFriendsListData } from '../../services/profile';
 import { useQuery } from '@tanstack/react-query';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export const ProfileFriends = () => {
   const { data, isLoading } = useQuery({
@@ -60,12 +62,15 @@ export const ProfileFriends = () => {
                 <img className="loading" src={friend.image} />
               </div>
               <div className="profile-list-item-info">
-                <p className="page-paragraph">{friend.name}</p>
-                {friend.topFriend ? (
-                  <p className="top-friend">Top Friend</p>
-                ) : (
-                  <div></div>
-                )}
+                <p className="page-paragraph">
+                  {friend.name}&nbsp;
+                  {friend.topFriend && (
+                    <span className="top-friend">
+                      <FontAwesomeIcon icon={faHeart} />
+                    </span>
+                  )}
+                </p>
+
                 <p className="page-micro">
                   {friend.jobTitle} @ {friend.companyName}
                 </p>
